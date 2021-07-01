@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .drum-pad{
+      background-color: royalblue;
+      border-radius:25px;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content:center;
+      align-items: center;
+      font-size:30px;
+      color: white;
+      box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, .4);
+      cursor: pointer;
+    }
+    .drum-pad:hover{
+      background-color: rgb(43, 68, 141);
+      font-size: 1px;
+    }
+  </style>
+  <title>Document</title>
+</head>
+<body>
+  <div id="drum-machine">
+    <div id="display" style="margin: 0 auto;display:grid; gap:20px; align-items:center;justify-items: center; grid-template-columns:1fr 1fr 1fr; width:60vw; height:60vh; ">
+      <div class="drum-pad" id="sonido-1" >
+        <audio class="clip" id="Q" src="./audios/mario-coin.mp3">
+        </audio>
+        <p>Q</p>
+      </div>
+      <div class="drum-pad" id="sonido-2">
+        <audio class="clip" id="W" src="./audios/mario-coin.mp3">
+        </audio>
+        <p>W</p>
+      </div>
+      <div class="drum-pad" id="sonido-3">
+        <audio class="clip" id="E" src="./audios/mario-coin.mp3">
+        </audio>
+        <p>E</p>
+      </div>
+      <div class="drum-pad" id="sonido-4">
+        <audio class="clip" id="A" src="./audios/mario-coin.mp3">
+        </audio>
+        <p>A</p>
+      </div>
+      <div class="drum-pad" id="sonido-5">
+        <audio class="clip" id="S" src="./audios/mario-coin.mp3">
+        </audio>
+        <p>S</p>
+      </div>
+      <div class="drum-pad" id="sonido-6">
+        <audio class="clip" id="D" src="./audios/mario-coin.mp3">
+        </audio>
+        <p>D</p>
+      </div>
+      <div class="drum-pad" id="sonido-7">
+        <audio class="clip" id="Z" src="./audios/mario-coin.mp3">
+        </audio>
+        <p>Z</p>
+      </div>
+      <div class="drum-pad" id="sonido-8">
+        <audio class="clip" id="X" src="./audios/mario-coin.mp3">
+        </audio>
+        <p>X</p>
+      </div>
+      <div class="drum-pad" id="sonido-9">
+        <audio class="clip" id="C" src="./audios/mario-coin.mp3">
+        </audio>
+        <p>C</p>
+      </div>
+    </div>
+    <div style="width:100%; display:flex; justify-content:center; margin:50px 0;">
+      <input type="text" id="input" style="font-size:30px; height:40px; width:30%; display:flex; justify-content:center, align-items:center;">
+    </div>
+  </div>
+  <script>
+    const input = document.getElementById('input');
+    const sonido1 = document.getElementById('sonido-1');
+    const sonido2 = document.getElementById('sonido-2');
+    const sonido3 = document.getElementById('sonido-3');
+    const sonido4 = document.getElementById('sonido-4');
+    const sonido5 = document.getElementById('sonido-5');
+    const sonido6 = document.getElementById('sonido-6');
+    const sonido7 = document.getElementById('sonido-7');
+    const sonido8 = document.getElementById('sonido-8');
+    const sonido9 = document.getElementById('sonido-9'); 
+    const Q = document.getElementById('Q');
+    const W = document.getElementById('W');
+    const E = document.getElementById('E');
+    const A = document.getElementById('A');
+    const S = document.getElementById('S');
+    const D = document.getElementById('D');
+    const Z = document.getElementById('Z');
+    const X = document.getElementById('X');
+    const C = document.getElementById('C');
+    function reproductor (sound,evento){ 
+      input.value=evento.target.children[1].innerText
+
+      sound.play();
+    }
+    function teclaSound(evento){
+      input.value = evento.key;
+      switch (evento.keyCode) {
+        case 81:
+          Q.play();
+          break;
+        case 87:
+          W.play();
+          break;
+          case 69:
+          E.play();
+          break;
+          case 65:
+          E.play();
+          break;
+          case 83:
+          E.play();
+          break;
+          case 68:
+          E.play();
+          break;
+          case 90:
+          E.play();
+          break;
+          case 88:
+          E.play();
+          break;
+          case 67:
+          E.play();
+          break;
+        default:
+          break;
+      }
+
+    }
+    sonido1.addEventListener('click', (evento)=>reproductor(Q,evento))
+    sonido2.addEventListener('click', (evento)=>reproductor(W,evento))
+    sonido3.addEventListener('click', (evento)=>reproductor(E,evento))
+    sonido4.addEventListener('click', (evento)=>reproductor(A,evento))
+    sonido5.addEventListener('click', (evento)=>reproductor(S,evento))
+    sonido6.addEventListener('click', (evento)=>reproductor(D,evento))
+    sonido7.addEventListener('click', (evento)=>reproductor(Z,evento))
+    sonido8.addEventListener('click', (evento)=>reproductor(X,evento))
+    sonido9.addEventListener('click', (evento)=>reproductor(C,evento))
+    window.addEventListener('keyup', (evento)=>teclaSound(evento))
+
+  </script>
+</body>
+</html>
